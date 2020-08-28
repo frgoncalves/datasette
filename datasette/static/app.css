@@ -1,0 +1,117 @@
+
+body {
+    margin: 0 1em;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+table {
+    border-collapse: collapse;
+}
+td {
+    border-top: 1px solid #aaa;
+    border-right: 1px solid #eee;
+    padding: 4px;
+    vertical-align: top;
+}
+th {
+    padding-right: 1em;
+}
+@media only screen and (max-width: 576px) {
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+        margin-bottom: 1em;
+    }
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        padding: 0;
+        padding-left: 10%;
+    }
+
+    td:before {
+        display: block;
+        margin-left: -10%;
+        font-size: 0.8em;
+    }
+}
+
+.hd {
+    border-bottom: 2px solid #ccc;
+}
+.ft {
+    margin: 1em 0;
+    border-top: 1px solid #ccc;
+    font-size: 0.8em;
+}
+.hd :link {
+    text-decoration: none;
+}
+
+.db-table p {
+    margin-top: 0;
+    margin-bottom: 0.3em;
+}
+.db-table h2 {
+    margin-top: 1em;
+    margin-bottom: 0;
+}
+
+form.sql textarea {
+    border: 1px solid #ccc;
+    width: 70%;
+    height: 3em;
+    padding: 4px;
+    font-family: monospace;
+    font-size: 1.3em;
+}
+form.sql label {
+    font-weight: bold;
+    display: inline-block;
+    width: 15%;
+}
+form.sql input[type=text] {
+    border: 1px solid #ccc;
+    width: 60%;
+    padding: 4px;
+    font-family: monospace;
+    display: inline-block;
+    font-size: 1.1em;
+}
+@media only screen and (max-width: 576px) {
+    form.sql textarea {
+        width: 95%;
+    }
+}
+form.sql input[type=submit] {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    font-weight: 400;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid blue;
+    padding: .275rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+}

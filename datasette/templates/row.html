@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}{{ database }}: {{ table }}{% endblock %}
+
+{% block extra_head %}
+<style>
+@media only screen and (max-width: 576px) {
+{% for column in columns %}
+    td:nth-of-type({{ loop.index }}):before { content: "{{ column|escape_css_string }}"; }
+{% endfor %}
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="hd"><a href="/">home</a> / <a href="/{{ database }}-{{ database_hash }}">{{ database }}</a> / <a href="/{{ database }}-{{ database_hash }}/{{ table|quote_plus }}">{{ table }}</a></div>
+
+<h1 style="padding-left: 10px; border-left: 10px solid #{{ database_hash[:6] }}">{{ table }}: {{ ', '.join(primary_key_values) }}</a></h1>
+
+<p>This data as <a href="{{ url_json }}">.json</a>, <a href="{{ url_jsono }}">.jsono</a></p>
+
+<table>
+    <thead>
+        <tr>
+            {% for column in columns %}<th scope="col">{{ column }}</th>{% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+    {% for row in rows %}
+        <tr>
+            {% for td in row %}
+                <td>{{ td }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
